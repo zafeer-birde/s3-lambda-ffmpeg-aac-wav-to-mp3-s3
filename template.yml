@@ -12,11 +12,11 @@ Parameters:
     AllowedPattern: '[0-9]'
   InputS3BucketName:
     Type: String
-    Default: 's3-lambda-ffmpeg-input-aac-wav-bucket'
+    Default: 's3-lambda-ffmpeg-input-bucket'
     MinLength: 3
   OutputS3BucketName:
     Type: String
-    Default: 's3-lambda-ffmpeg-output-mp3-bucket'
+    Default: 's3-lambda-ffmpeg-output-bucket'
     MinLength: 3
 Resources:
   InputS3Bucket:
@@ -32,7 +32,7 @@ Resources:
       Runtime: nodejs8.10
       CodeUri: src/
       Layers:
-        - 'arn:aws:lambda:us-east-1:145266761615:layer:ffmpeg:4'
+        - 'arn:aws:lambda:us-east-1:858978284159:layer:ffmpeg:1'
       Policies:
       - S3CrudPolicy:
           BucketName: !Ref OutputS3BucketName
